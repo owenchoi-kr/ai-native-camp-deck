@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Native Camp — ab180</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Pretendard:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css">
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg-card: #1e293b;
+      --bg-card-hover: #334155;
+      --emerald: #10b981;
+      --cyan: #06b6d4;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --gradient-start: #10b981;
+      --gradient-end: #06b6d4;
+    }
+
+    .reveal-viewport {
+      background: var(--bg) !important;
+    }
+
+    .reveal {
+      font-family: 'Pretendard', 'Inter', -apple-system, sans-serif;
+      color: var(--text);
+    }
+
+    .reveal h1, .reveal h2, .reveal h3 {
+      font-family: 'Pretendard', 'Inter', -apple-system, sans-serif;
+      color: var(--text);
+      text-transform: none;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .reveal h1 { font-size: 2.8em; }
+    .reveal h2 { font-size: 1.8em; }
+    .reveal h3 { font-size: 1.3em; color: var(--emerald); }
+
+    .reveal p, .reveal li {
+      font-size: 0.75em;
+      line-height: 1.6;
+      color: var(--text-muted);
+    }
+
+    .reveal section {
+      text-align: left;
+      padding: 40px 60px;
+    }
+
+    /* Gradient text */
+    .gradient-text {
+      background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Accent line */
+    .accent-line {
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--emerald), var(--cyan));
+      border-radius: 2px;
+      margin-bottom: 24px;
+    }
+
+    /* Tag / Badge */
+    .tag {
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 0.55em;
+      font-weight: 600;
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--emerald);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      margin: 4px;
+    }
+
+    .tag.cyan {
+      background: rgba(6, 182, 212, 0.15);
+      color: var(--cyan);
+      border-color: rgba(6, 182, 212, 0.3);
+    }
+
+    /* Card Grid */
+    .card-grid {
+      display: grid;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .card-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .card-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .card-grid.cols-6 { grid-template-columns: repeat(3, 1fr); }
+
+    .card {
+      background: var(--bg-card);
+      border-radius: 12px;
+      padding: 24px;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: transform 0.2s;
+    }
+
+    .card h4 {
+      font-size: 0.7em;
+      font-weight: 700;
+      color: var(--text);
+      margin: 0 0 8px 0;
+    }
+
+    .card p {
+      font-size: 0.55em;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .card .card-number {
+      font-size: 1.8em;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--emerald), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+
+    /* Person card */
+    .person-card {
+      background: var(--bg-card);
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,0.06);
+      text-align: center;
+    }
+
+    .person-card .name {
+      font-size: 0.7em;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .person-card .role {
+      font-size: 0.5em;
+      color: var(--emerald);
+      font-weight: 600;
+    }
+
+    .person-card .team {
+      font-size: 0.45em;
+      color: var(--text-dim);
+      margin-top: 2px;
+    }
+
+    /* Timeline */
+    .timeline {
+      display: flex;
+      align-items: flex-start;
+      gap: 0;
+      margin-top: 32px;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 18px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--emerald), var(--cyan));
+      border-radius: 2px;
+    }
+
+    .timeline-item {
+      flex: 1;
+      text-align: center;
+      position: relative;
+      padding-top: 36px;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--emerald);
+      border: 3px solid var(--bg);
+      z-index: 1;
+    }
+
+    .timeline-item .t-label {
+      font-size: 0.5em;
+      font-weight: 700;
+      color: var(--emerald);
+      margin-bottom: 4px;
+    }
+
+    .timeline-item .t-desc {
+      font-size: 0.42em;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* Quote block */
+    .quote-block {
+      background: var(--bg-card);
+      border-left: 4px solid var(--emerald);
+      border-radius: 0 12px 12px 0;
+      padding: 20px 28px;
+      margin: 20px 0;
+      position: relative;
+    }
+
+    .quote-block p {
+      font-size: 0.65em;
+      font-style: italic;
+      color: var(--text);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .quote-block .quote-author {
+      font-size: 0.5em;
+      color: var(--emerald);
+      font-style: normal;
+      font-weight: 600;
+      margin-top: 8px;
+    }
+
+    /* Project slide */
+    .project-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .project-header .avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--emerald), var(--cyan));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2em;
+      font-weight: 800;
+      color: var(--bg);
+      flex-shrink: 0;
+    }
+
+    .project-header .info h2 {
+      font-size: 1.2em;
+      margin: 0;
+    }
+
+    .project-header .info .subtitle {
+      font-size: 0.55em;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .problem-solution {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 16px;
+    }
+
+    .problem-box, .solution-box {
+      background: var(--bg-card);
+      border-radius: 12px;
+      padding: 24px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .problem-box {
+      border-top: 3px solid #ef4444;
+    }
+
+    .solution-box {
+      border-top: 3px solid var(--emerald);
+    }
+
+    .problem-box h4, .solution-box h4 {
+      font-size: 0.55em;
+      font-weight: 700;
+      margin: 0 0 8px 0;
+    }
+
+    .problem-box h4 { color: #ef4444; }
+    .solution-box h4 { color: var(--emerald); }
+
+    .problem-box p, .solution-box p {
+      font-size: 0.5em;
+      margin: 0;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Impact number */
+    .impact-row {
+      display: flex;
+      gap: 24px;
+      margin-top: 16px;
+    }
+
+    .impact-stat {
+      text-align: center;
+    }
+
+    .impact-stat .number {
+      font-size: 1.6em;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--emerald), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .impact-stat .label {
+      font-size: 0.45em;
+      color: var(--text-dim);
+      margin-top: 4px;
+    }
+
+    /* Arrow between */
+    .arrow-flow {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    .arrow-flow .before, .arrow-flow .after {
+      flex: 1;
+      padding: 16px;
+      border-radius: 10px;
+      font-size: 0.55em;
+    }
+
+    .arrow-flow .before {
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: #fca5a5;
+    }
+
+    .arrow-flow .after {
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #6ee7b7;
+    }
+
+    .arrow-flow .arrow {
+      font-size: 1.5em;
+      color: var(--text-dim);
+    }
+
+    /* Architecture diagram */
+    .arch-flow {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .arch-node {
+      background: var(--bg-card);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-size: 0.45em;
+      color: var(--emerald);
+      font-weight: 600;
+    }
+
+    .arch-arrow {
+      color: var(--text-dim);
+      font-size: 0.6em;
+    }
+
+    /* Change list */
+    .change-list {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0;
+    }
+
+    .change-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      font-size: 0.58em;
+    }
+
+    .change-list li .icon {
+      font-size: 1.2em;
+      flex-shrink: 0;
+    }
+
+    /* Section divider */
+    .section-divider {
+      text-align: center !important;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .section-divider .part-number {
+      font-size: 0.6em;
+      color: var(--emerald);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* Title slide */
+    .title-slide {
+      text-align: center !important;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .title-slide h1 {
+      font-size: 3.5em;
+      margin-bottom: 8px;
+    }
+
+    .title-slide .date {
+      font-size: 0.7em;
+      color: var(--text-dim);
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+
+    .title-slide .tagline {
+      font-size: 0.9em;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Pipeline steps */
+    .pipeline {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .pipeline-step {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .pipeline-step .step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--emerald), var(--cyan));
+      color: var(--bg);
+      font-size: 0.45em;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .pipeline-step .step-text {
+      font-size: 0.5em;
+      color: var(--text-muted);
+    }
+
+    .pipeline-step .step-text strong {
+      color: var(--text);
+    }
+
+    /* Closing */
+    .closing-slide {
+      text-align: center !important;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Override reveal.js defaults */
+    .reveal .slides section .fragment.visible {
+      opacity: 1;
+    }
+
+    .reveal .progress span {
+      background: linear-gradient(90deg, var(--emerald), var(--cyan));
+    }
+
+    .reveal .controls button {
+      color: var(--emerald);
+    }
+
+    /* Curriculum grid */
+    .curriculum-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .curriculum-day {
+      background: var(--bg-card);
+      border-radius: 12px;
+      padding: 20px 16px;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-top: 3px solid var(--emerald);
+    }
+
+    .curriculum-day .day-label {
+      font-size: 0.5em;
+      font-weight: 700;
+      color: var(--emerald);
+      margin-bottom: 8px;
+    }
+
+    .curriculum-day .day-title {
+      font-size: 0.58em;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .curriculum-day .day-desc {
+      font-size: 0.42em;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Closing items */
+    .closing-items {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .closing-item {
+      background: var(--bg-card);
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,0.06);
+      text-align: left;
+    }
+
+    .closing-item h4 {
+      font-size: 0.6em;
+      font-weight: 700;
+      color: var(--emerald);
+      margin: 0 0 6px 0;
+    }
+
+    .closing-item p {
+      font-size: 0.48em;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ========================================= -->
+      <!-- SLIDE 1: Title -->
+      <!-- ========================================= -->
+      <section class="title-slide">
+        <h1 class="gradient-text">AI Native Camp</h1>
+        <div class="date">2026.02.23 — 03.06</div>
+        <div class="tagline">비개발자 6명의 2주</div>
+      </section>
+
+      <!-- ========================================= -->
+      <!-- SLIDE 2: Why -->
+      <!-- ========================================= -->
+      <section>
+        <div class="accent-line"></div>
+        <h2>왜 했는가</h2>
+        <div class="quote-block" style="margin-top: 32px;">
+          <p>"AI 도구를 도입한 게 아니라<br>일하는 방식의 멘탈모델을 바꿨습니다"</p>
+        </div>
+        <p style="margin-top: 24px; font-size: 0.65em; color: var(--text-muted);">
+          도구 숙련도가 아니라 <strong style="color: var(--text);">문제를 구조화하는 사고방식</strong>을 바꾸는 것이 목표였습니다.
+        </p>
+      </section>
+
+      <!-- ========================================= -->
+      <!-- SLIDE 3: AI Native 인재란 -->
+      <!-- ========================================= -->
+      <section>
+        <div class="accent-line"></div>
+        <h2><span class="gradient-text">AI Native</span> 인재란</h2>
+        <div class="card-grid cols-3" style="margin-top: 32px;">
+          <div class="card fragment">
+            <div class="card-number">01</div>
+            <h4>암묵지를 명시화</h4>
+            <p>머릿속 노하우를 프롬프트와 컨텍스트 파일로 구조화하여 AI가 실행할 수 있는 형태로 전환</p>
+          </div>
+          <div class="card fragment">
+            <div class="card-number">02</div>
+            <h4>모르는 영역을 캐치</h4>
+            <p>"내가 뭘 모르는지"를 인식하고, AI를 활용해 지식의 빈틈을 채우는 메타인지 능력</p>
+          </div>
+          <div class="card fragment">
+            <div class="card-number">03</div>
+            <h4>피드백루프 설계</h4>
+            <p>한 번 쓰고 버리는 게 아니라, 반복 가능한 워크플로우로 만들어 지속적으로 개선</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================= -->
+      <!-- SLIDE 4: 캠프 구조 -->
+      <!-- ========================================= -->
+      <section>
+        <div class="accent-line"></div>
+        <h2>캠프 구조</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="t-label">Week 1</div>
+            <div class="t-desc">4일 교육<br>Day 1–4</div>
+          </div>
+          <div class="timeline-item">
+            <div class="t-label">Week 2</div>
+            <div class="t-desc">프로젝트 수행<br>실무 문제 해결</div>
+          </div>
+          <div class="timeline-item">
+            <div class="t-label">3/6</div>
+            <div class="t-desc">발표회<br>성과 공유</div>
+          </div>
+        </div>
+        <p style="margin-top: 40px; font-size: 0.6em; color: var(--text-dim); text-align: center;">
+          강사: 최현종 · 송예찬 &nbsp;|&nbsp; 참가자: 비개발직군 6명
+        </p>
+      </section>
+
+      <!-- ========================================= -->
+      <!-- SLIDE 5: 커리큘럼 -->
+      <!-- ========================================= -->
+      <section>
+        <div class="accent-line"></div>
+        <h2>커리큘럼</h2>
+        <div class="curriculum-grid">
+          <div class="curriculum-day fragment">
+            <div class="day-label">DAY 1</div>
+            <div class="day-title">온보딩</div>
+            <div class="day-desc">Claude Code 설치 · 기본 대화 · 컨텍스트 개념 · CLAUDE.md 작성</div>
+          </div>
+          <div class="curriculum-day fragment">
+            <div class="day-label">DAY 2</div>
+            <div class="day-title">MCP + 스킬</div>
+            <div class="day-desc">MCP 서버 연결 · 커스텀 스킬 제작 · 외부 도구 연동</div>
+          </div>
+          <div class="curriculum-day fragment">
+            <div class="day-label">DAY 3</div>
+            <div class="day-title">심화</div>
+            <div class="day-desc">에이전트 패턴 · 멀티스텝 자동화 · 실전 프로젝트 착수</div>
+          </div>
+          <div class="curriculum-day fragment">
+            <div class="day-label">DAY 4</div>
+            <div class="day-title">Wrap & Analyze</div>
+            <div class="day-desc">세션 분석 · 히스토리 인사이트 · 프로젝트 마무리 전략</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================= -->
+      <!-- SLIDE 6: 참가자 소개 -->
+      <!-- ========================================= -->
+      <section>
+        <div class="accent-line"></div>
+        <h2>참가자</h2>
+        <div class="card-grid cols-6" style="margin-top: 24px;">
+          <div class="person-card fragment">
+            <div class="name">오담인</div>
+            <div class="role">Solutions Architect</div>
+            <div class="team">SA Team</div>
+          </div>
+          <div class="person-card fragment">
+            <div class="name">서한솔</div>
+            <div class="role">Sales</div>
+            <div class="team">Sales Team</div>
+          </div>
+          <div class="person-card fragment">
+            <div class="name">오영주</div>
+            <div class="role">Product Writer</div>
+            <div class="team">PW Team</div>
+          </div>
+          <div class="person-card fragment">
+            <div class="name">정운채</div>
+            <div class="role">Customer Success</div>
+            <div class="team">CS Team</div>
+          </div>
+          <div class="person-card fragment">
+            <div class="name">고진형</div>
+            <div class="role">Operations</div>
+            <div class="team">Ops Team</div>
+          </div>
+          <div class="person-card fragment">
+            <div class="name">David Kim</div>
+            <div class="role">Product Manager</div>
+            <div class="team">PM Team</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================= -->
+      <!-- SECTION DIVIDER: Part 2 -->
+      <!-- ========================================= -->
+      <section class="section-divider">
+        <div class="part-number">Part 2</div>
+        <h1 class="gradient-text" style="font-size: 2.5em;">프로젝트</h1>
+        <p style="font-size: 0.7em; color: var(--text-muted); text-align: center;">6명의 참가자, 6개의 실무 문제 해결</p>
+      </section>
+
+      <!-- ========================================= -->
+      <!-- SLIDE 7-8: 오담인 -->
+      <!-- ========================================= -->
+      <section>
+        <div class="project-header">
+          <div class="avatar">담인</div>
+          <div class="info">
+            <h2>오담인 <span style="font-size: 0.5em; color: var(--text-dim); font-weight: 500;">SA</span></h2>
+            <div class="subtitle">고객 기술 문의 분석기 + Amplitude 크롬 확장</div>
+          </div>
+        </div>
+        <div class="problem-solution">
+          <div class="problem-box">
+            <h4>Problem</h4>
+            <p>뉴스레터 콘텐츠에서 '아젠다'만 정리하느라 정작 팀에 유용한 인사이트를 놓침. Amplitude 데이터 확인에 여러 단계가 필요</p>
+          </div>
+          <div class="solution-box">
+            <h4>Solution</h4>
+            <p>기술 문의를 자동 분류·분석하는 도구 + Amplitude 데이터를 즉시 조회하는 크롬 확장 프로그램 개발</p>
+          </div>
+        </div>
+        <div class="quote-block" style="margin-top: 20px;">
+          <p>"뉴스레터에서 '아젠다'가 아닌 '인사이트'를 뽑기 시작했습니다"</p>
+          <div class="quote-author">— 실무 즉시 적용</div>
+        </div>
+      </section>
+
+      <!-- ========================================= -->
+      <!-- SLIDE 9-10: 서한솔 -->
+      <!-- ========================================= -->
+      <section>
+        <div class="project-header">
+          <div class="avatar">한솔</div>
+          <div class="info">
+            <h2>서한솔 <span style="font-size: 0.5em; color: var(--text-dim); font-weight: 500;">Sales</span></h2>
+            <div class="subtitle">초청리스트 자동화 — invite-list 스킬</div>
+          </div>
+        </div>
+        <div class="problem-solution">
+          <div class="problem-box">
+            <h4>Problem</h4>
+            <p>H2O → BigQuery → Salesforce를 오가며 6단계를 수동으로 처리. 반복적이고 시간 소모적인 작업</p>
+          </div>
+          <div class="solution-box">
+            <h4>Solution</h4>
+            <p>전체 파이프라인을 하나의 Claude Code 스킬로 자동화. 캠프 이후에도 응용 버전으로 실무 적용 중</p>
+          </div>
+        </div>
+        <div class="arrow-flow" style="margin-top: 20px;">
+          <div class="before">
+            <strong>Before</strong><br>
+            H2O → BigQuery → SF<br>6단계 수동 처리
+          </div>
+          <div class="arrow">→</div>
+          <div class="after">
+            <strong>After</strong><br>
+            /invite-list<br>스킬 1개로 자동화
+          </div>
+        </div>
+        <p style="font-size: 0.5em; color: var(--emerald); margin-top: 8px;">캠프 종료 후에도 응용 버전으로 계속 사용 중</p>
+      </section>
+
+      <!-- ========================================= -->
+      <!-- SLIDE 11-12: 오영주 -->
+      <!-- ========================================= -->
+      <section>
+        <div class="project-header">
+          <div class="avatar">영주</div>
+          <div class="info">
+            <h2>오영주 <span style="font-size: 0.5em; color: var(--text-dim); font-weight: 500;">PW</span></h2>
+            <div class="subtitle">PW 가이드 80편 AI 최적화</div>
+          </div>
+        </div>
+        <div class="problem-solution">
+          <div class="problem-box">
+            <h4>Problem</h4>
+            <p>80편의 제품 가이드를 일일이 수동으로 최적화하기엔 시간과 인력이 부족. 도구나 하드스킬 없이는 엄두를 못 내던 작업</p>
+          </div>
+          <div class="solution-box">
+            <h4>Solution</h4>
+            <p>Claude Code로 가이드 분석 → 개선점 도출 → 자동 리라이팅 파이프라인 구축</p>
+          </div>
+        </div>
+        <div class="quote-block" style="margin-top: 20px;">
+          <p>"굉장히 empowering한 경험이었어요.<br>도구 경험도 하드스킬도 없어서 어찌할 도리가 없던 일에<br>방법을 찾고 구현할 수 있다는 게 너무 놀랍고 신나요"</p>
+          <div class="quote-author">— 오영주</div>
+        </div>
+      </section>
+
+      <!-- ========================================= -->
+      <!-- SLIDE 13-14: 정운채 -->
+      <!-- ========================================= -->
+      <section>
+        <div class="project-header">
+          <div class="avatar">운채</div>
+          <div class="info">
+            <h2>정운채 <span style="font-size: 0.5em; color: var(--text-dim); font-weight: 500;">CS</span></h2>
+            <div class="subtitle">CS 문의 자동 초안 생성 — 5단계 파이프라인</div>
+          </div>
+        </div>
+        <div class="pipeline">
+          <div class="pipeline-step fragment">
+            <div class="step-num">1</div>
+            <div class="step-text"><strong>이메일 수신</strong> — 고객 문의 접수</div>
+          </div>
+          <div class="pipeline-step fragment">
+            <div class="step-num">2</div>
+            <div class="step-text"><strong>자동 분류</strong> — 문의 유형 판별</div>
+          </div>
+          <div class="pipeline-step fragment">
+            <div class="step-num">3</div>
+            <div class="step-text"><strong>가이드 검색</strong> — 관련 문서 자동 매칭</div>
+          </div>
+          <div class="pipeline-step fragment">
+            <div class="step-num">4</div>
+            <div class="step-text"><strong>답변 초안</strong> — AI 기반 응답 생성</div>
+          </div>
+          <div class="pipeline-step fragment">
+            <div class="step-num">5</div>
+            <div class="step-text"><strong>Obsidian 저장</strong> — 지식베이스 축적</div>
+          </div>
+        </div>
+        <p style="font-size: 0.5em; color: var(--text-dim); margin-top: 16px;">
+          오케스트레이터 + 서브에이전트 구조로 설계
+        </p>
+      </section>
+
+      <!-- ========================================= -->
+      <!-- SLIDE 15-16: 고진형 -->
+      <!-- ========================================= -->
+      <section>
+        <div class="project-header">
+          <div class="avatar">진형</div>
+          <div class="info">
+            <h2>고진형 <span style="font-size: 0.5em; color: var(--text-dim); font-weight: 500;">Ops</span></h2>
+            <div class="subtitle">Invoice 메일함 자동 정리 봇</div>
+          </div>
+        </div>
+        <div class="problem-solution">
+          <div class="problem-box">
+            <h4>Problem</h4>
+            <p>수금 관련 고객 문의가 다른 메일에 묻혀 놓치는 경우 발생. 수동 분류에 시간 소모</p>
+          </div>
+          <div class="solution-box">
+            <h4>Solution</h4>
+            <p>메일함에서 수금 관련 문의만 자동 필터링 → Slack으로 현황 공유하는 봇 구축</p>
+          </div>
+        </div>
+        <div style="margin-top: 24px; text-align: center;">
+          <div class="impact-stat" style="display: inline-block;">
+            <div class="number">100%</div>
+            <div class="label">발표일 사용량</div>
+          </div>
+        </div>
+        <div class="quote-block" style="margin-top: 16px;">
+          <p>발표 당일에도 실제 업무에 100% 활용 중</p>
+          <div class="quote-author">— 만들자마자 실무 투입</div>
+        </div>
+      </section>
+
+      <!-- ========================================= -->
+      <!-- SLIDE 17-18: David Kim -->
+      <!-- ========================================= -->
+      <section>
+        <div class="project-header">
+          <div class="avatar">DK</div>
+          <div class="info">
+            <h2>David Kim <span style="font-size: 0.5em; color: var(--text-dim); font-weight: 500;">PM</span></h2>
+            <div class="subtitle">PRD 자동 작성 도구 — /prd 스킬</div>
+          </div>
+        </div>
+        <div class="problem-solution">
+          <div class="problem-box">
+            <h4>Problem</h4>
+            <p>PRD 작성이 매번 시간이 오래 걸리고, PM마다 형식과 품질이 다름</p>
+          </div>
+          <div class="solution-box">
+            <h4>Solution</h4>
+            <p>/prd 스킬로 표준화된 PRD를 자동 생성. ab180 org에 배포하여 다른 PM도 사용 가능</p>
+          </div>
+        </div>
+        <div style="margin-top: 24px;">
+          <div class="arch-flow">
+            <div class="arch-node">/prd 명령</div>
+            <div class="arch-arrow">→</div>
+            <div class="arch-node">컨텍스트 수집</div>
+            <div class="arch-arrow">→</div>
+            <div class="arch-node">PRD 생성</div>
+            <div class="arch-arrow">→</div>
+            <div class="arch-node">ab180 org 배포</div>
+          </div>
+        </div>
+        <p style="font-size: 0.5em; color: var(--emerald); margin-top: 16px;">
+          개인 도구 → 팀 도구로 발전. 다른 PM도 사용 가능
+        </p>
+      </section>
+
+      <!-- ========================================= -->
+      <!-- SECTION DIVIDER: Part 3 -->
+      <!-- ========================================= -->
+      <section class="section-divider">
+        <div class="part-number">Part 3</div>
+        <h1 class="gradient-text" style="font-size: 2.5em;">임팩트</h1>
+        <p style="font-size: 0.7em; color: var(--text-muted); text-align: center;">질문이 바뀌었습니다</p>
+      </section>
+
+      <!-- ========================================= -->
+      <!-- SLIDE 19: 변화 요약 -->
+      <!-- ========================================= -->
+      <section>
+        <div class="accent-line"></div>
+        <h2>질문이 바뀌었습니다</h2>
+        <div class="arrow-flow" style="margin-top: 28px;">
+          <div class="before" style="text-align: center;">
+            "이 기능 어떻게 써요?"
+          </div>
+          <div class="arrow">→</div>
+          <div class="after" style="text-align: center;">
+            "이 업무를 어떻게 구조화하면<br>AI한테 맡길 수 있을까요?"
+          </div>
+        </div>
+        <h3 style="margin-top: 32px; font-size: 0.8em;">캠프 이후에도 계속</h3>
+        <ul class="change-list">
+          <li class="fragment">
+            <span class="icon">🔄</span>
+            <span><strong style="color: var(--text);">서한솔</strong> — 초청리스트 스킬의 응용 버전을 만들어 다른 업무에 적용</span>
+          </li>
+          <li class="fragment">
+            <span class="icon">🔧</span>
+            <span><strong style="color: var(--text);">오담인</strong> — 크롬 확장 프로그램을 지속적으로 개선 중</span>
+          </li>
+          <li class="fragment">
+            <span class="icon">📊</span>
+            <span><strong style="color: var(--text);">고진형</strong> — 발표일 기준 사용량 100%, 실무 완전 투입</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ========================================= -->
+      <!-- SLIDE 20: 캠프 이후 -->
+      <!-- ========================================= -->
+      <section>
+        <div class="accent-line"></div>
+        <h2>캠프 그 이후</h2>
+        <div class="closing-items" style="margin-top: 24px;">
+          <div class="closing-item fragment">
+            <h4>🔒 보안팀 합류</h4>
+            <p>SECURITY.md 작성에 보안팀이 자발적으로 참여. 조직 차원의 AI 거버넌스로 확장</p>
+          </div>
+          <div class="closing-item fragment">
+            <h4>🌍 외부인 조인</h4>
+            <p>이동준 님이 교육 자료를 보고 "자료 도둑질"하러 합류. 조직 외부로도 관심 확산</p>
+          </div>
+          <div class="closing-item fragment">
+            <h4>🍻 회식 투표</h4>
+            <p>참가자들이 회식을 자체 기획. 교육을 넘어 커뮤니티가 형성</p>
+          </div>
+          <div class="closing-item fragment">
+            <h4>🚀 다음 프로그램</h4>
+            <p>AI Native Camp의 확장판 — 더 많은 직군, 더 깊은 프로젝트를 계획 중</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================= -->
+      <!-- SLIDE 21: 클로징 -->
+      <!-- ========================================= -->
+      <section class="closing-slide">
+        <div class="quote-block" style="border-left-color: var(--cyan); max-width: 700px; text-align: left;">
+          <p>"도구와 스킬에만 치중하지 않고<br>지식인의 재정의, 메타인지의 중요성을 강조해주셔서<br>정말 뜻깊었습니다"</p>
+          <div class="quote-author">— 오영주</div>
+        </div>
+        <h2 style="margin-top: 40px; text-align: center;"><span class="gradient-text">AI Native</span>는 도구가 아니라 사고방식입니다</h2>
+        <p style="font-size: 0.65em; color: var(--text-dim); margin-top: 16px; text-align: center;">
+          Thank you. 🙏
+        </p>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      transition: 'slide',
+      transitionSpeed: 'default',
+      backgroundTransition: 'fade',
+      center: false,
+      width: 1280,
+      height: 720,
+      margin: 0.04,
+      controls: true,
+      progress: true,
+      history: true,
+      touch: true,
+    });
+  </script>
+</body>
+</html>
