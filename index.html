@@ -839,32 +839,40 @@
           <div class="avatar">영주</div>
           <div class="info">
             <h2>오영주 <span style="font-size: 0.5em; color: var(--text-dim); font-weight: 500;">PW</span></h2>
-            <div class="subtitle">PW 가이드 80편 AI 최적화</div>
+            <div class="subtitle">Essential Guides Re-engineering — 89편 가이드 AI 전면 개선</div>
           </div>
         </div>
         <div class="problem-solution">
           <div class="problem-box">
             <h4>Problem</h4>
-            <p>80편의 제품 가이드를 일일이 수동으로 최적화하기엔 시간과 인력이 부족. 도구나 하드스킬 없이는 엄두를 못 내던 작업</p>
+            <p>89편 핵심 가이드를 3명이 분석→재작성→리뷰하면 6개월. PWG 2.0 + AI-Native 원칙 반영 + 영문 품질까지 — 엄두가 안 남</p>
           </div>
           <div class="solution-box">
             <h4>Solution</h4>
-            <p>Claude Code로 가이드 분석 → 개선점 도출 → 리라이팅. 스킬을 GitHub에 올려 PW 팀 전체가 활용 가능하도록 설계</p>
+            <p>6개 스킬 + 2개 프레임워크 + 5개 템플릿으로 전체 파이프라인 구축. GitHub 관리, Notion 태스크 자동 생성까지</p>
           </div>
         </div>
-        <div class="impact-row" style="margin-top: 20px; justify-content: center; gap: 48px;">
-          <div class="impact-stat">
-            <div class="number">80</div>
-            <div class="label">최적화 대상 가이드</div>
+        <div class="impact-row" style="margin-top: 20px; justify-content: center; gap: 28px;">
+          <div class="impact-stat fragment">
+            <div class="number">89</div>
+            <div class="label">대상 가이드</div>
           </div>
-          <div class="impact-stat">
-            <div class="number">0</div>
-            <div class="label">필요한 하드스킬</div>
+          <div class="impact-stat fragment">
+            <div class="number">6개월</div>
+            <div class="label">원래 예상 기간</div>
+          </div>
+          <div class="impact-stat fragment">
+            <div class="number">6</div>
+            <div class="label">커스텀 스킬</div>
+          </div>
+          <div class="impact-stat fragment">
+            <div class="number">5</div>
+            <div class="label">산출물 템플릿</div>
           </div>
         </div>
-        <div class="quote-block" style="margin-top: 20px;">
-          <p>"굉장히 empowering한 경험이었어요.<br>도구 경험도 하드스킬도 없어서 어찌할 도리가 없던 일에<br>방법을 찾고 구현할 수 있다는 게 너무 놀랍고 신나요"</p>
-          <div class="quote-author">— 오영주</div>
+        <div class="quote-block" style="margin-top: 16px;">
+          <p>"작업자에서 결정자로 — 인간은 결정하는 사람.<br>하드스킬 없어서 못 했던 거 다 해주게써. So empowering!"</p>
+          <div class="quote-author">— 오영주, "상반기 안에 끝낼 수 있을 것 같아"</div>
         </div>
       </section>
 
@@ -922,28 +930,51 @@
           <div class="avatar">진형</div>
           <div class="info">
             <h2>고진형 <span style="font-size: 0.5em; color: var(--text-dim); font-weight: 500;">Ops</span></h2>
-            <div class="subtitle">Invoice 메일함 자동 정리 봇</div>
+            <div class="subtitle">Invoice 자동 정리 시스템</div>
           </div>
         </div>
         <div class="problem-solution">
           <div class="problem-box">
             <h4>Problem</h4>
-            <p>수금 관련 고객 문의가 다른 메일에 묻혀 놓치는 경우 발생. 수동 분류에 시간 소모</p>
+            <p>인보이스 관련 고객 문의가 메일에 묻혀 누락. 파트너사 인보이스 수동 정리에 30분 이상 소요. 휴먼에러 발생</p>
           </div>
           <div class="solution-box">
             <h4>Solution</h4>
-            <p>메일함에서 수금 관련 문의만 자동 필터링 → Slack으로 현황 공유하는 봇 구축</p>
+            <p>2개 Flow 구축: 인보이스 문의 데일리 브리핑 + 파트너사 인보이스 자동 정리. 3개 스킬로 자동화</p>
           </div>
         </div>
-        <div style="margin-top: 24px; text-align: center;">
-          <div class="impact-stat" style="display: inline-block;">
-            <div class="number">100%</div>
-            <div class="label">발표일 사용량</div>
+        <div style="margin-top: 16px;">
+          <div class="arch-flow">
+            <div class="arch-node">/check-invoice</div>
+            <div class="arch-arrow">→</div>
+            <div class="arch-node">/read-invoice</div>
+            <div class="arch-arrow">→</div>
+            <div class="arch-node">/map-invoice</div>
+            <div class="arch-arrow">→</div>
+            <div class="arch-node">Slack 브리핑</div>
+          </div>
+        </div>
+        <div class="impact-row" style="margin-top: 20px;">
+          <div class="impact-stat">
+            <div class="number">3배</div>
+            <div class="label">회신속도 향상</div>
+          </div>
+          <div class="impact-stat">
+            <div class="number">0건</div>
+            <div class="label">중요메일 누락</div>
+          </div>
+          <div class="impact-stat">
+            <div class="number">30→5분</div>
+            <div class="label">인보이스 정리</div>
+          </div>
+          <div class="impact-stat">
+            <div class="number">0%</div>
+            <div class="label">휴먼에러</div>
           </div>
         </div>
         <div class="quote-block" style="margin-top: 16px;">
-          <p>발표 당일에도 실제 업무에 100% 활용 중</p>
-          <div class="quote-author">— 만들자마자 실무 투입</div>
+          <p>비개발자(Python/JS 초보~중급)가 자연어로 로직을 설계하고 구현</p>
+          <div class="quote-author">— 발표 당일에도 100% 실무 활용 중</div>
         </div>
       </section>
 
