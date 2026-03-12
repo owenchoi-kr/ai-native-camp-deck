@@ -748,22 +748,40 @@
           <div class="avatar">담인</div>
           <div class="info">
             <h2>오담인 <span style="font-size: 0.5em; color: var(--text-dim); font-weight: 500;">SA</span></h2>
-            <div class="subtitle">고객 기술 문의 분석기 + Amplitude 크롬 확장</div>
+            <div class="subtitle">Tool for Thought — 고객 기술 문의 분석기</div>
           </div>
         </div>
         <div class="problem-solution">
           <div class="problem-box">
             <h4>Problem</h4>
-            <p>뉴스레터 콘텐츠에서 '아젠다'만 정리하느라 정작 팀에 유용한 인사이트를 놓침. Amplitude 데이터 확인에 여러 단계가 필요</p>
+            <p>Gmail/Jira에서 맥락 수집에 시간 과다. AI에게 "답 써줘"하면 비판적 사고가 빠짐. AI 답변을 재검증하는 데 오히려 시간이 더 걸림</p>
           </div>
           <div class="solution-box">
             <h4>Solution</h4>
-            <p>기술 문의를 자동 분류·분석하는 도구 + Amplitude 데이터를 즉시 조회하는 크롬 확장 프로그램 개발</p>
+            <p>AI가 답을 주는 게 아니라 <strong>질문을 던지는</strong> 대시보드. 3 Phase + 2 Checkpoint + 3인 AI 전문가 위원회</p>
           </div>
         </div>
-        <div class="quote-block" style="margin-top: 20px;">
-          <p>"뉴스레터에서 '아젠다'가 아닌 '인사이트'를 뽑기 시작했습니다"</p>
-          <div class="quote-author">— 실무 즉시 적용</div>
+        <div class="impact-row" style="margin-top: 20px; justify-content: center; gap: 40px;">
+          <div class="impact-stat">
+            <div class="number">3</div>
+            <div class="label">Phase 단계</div>
+          </div>
+          <div class="impact-stat">
+            <div class="number">2</div>
+            <div class="label">SA Checkpoint</div>
+          </div>
+          <div class="impact-stat">
+            <div class="number">3</div>
+            <div class="label">AI 전문가 위원회</div>
+          </div>
+          <div class="impact-stat">
+            <div class="number">10+</div>
+            <div class="label">케이스 1건에서 추가된 규칙</div>
+          </div>
+        </div>
+        <div class="quote-block" style="margin-top: 16px;">
+          <p>"AI가 답을 주면 SA가 수동적이 된다. 질문을 시켜야 능동적이 된다"</p>
+          <div class="quote-author">— 캠프 이후 크롬 확장까지 확대, 실무 즉시 적용</div>
         </div>
       </section>
 
@@ -788,18 +806,29 @@
             <p>전체 파이프라인을 하나의 Claude Code 스킬로 자동화. 캠프 이후에도 응용 버전으로 실무 적용 중</p>
           </div>
         </div>
-        <div class="arrow-flow" style="margin-top: 20px;">
-          <div class="before">
-            <strong>Before</strong><br>
-            H2O → BigQuery → SF<br>6단계 수동 처리
+        <div class="impact-row" style="margin-top: 20px; justify-content: center; gap: 48px;">
+          <div class="impact-stat">
+            <div class="number">6</div>
+            <div class="label">수동 처리 단계</div>
           </div>
-          <div class="arrow">→</div>
-          <div class="after">
-            <strong>After</strong><br>
-            /invite-list<br>스킬 1개로 자동화
+          <div class="impact-stat" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <div class="number" style="font-size: 1.2em;">→</div>
+          </div>
+          <div class="impact-stat">
+            <div class="number">1</div>
+            <div class="label">/invite-list 스킬</div>
           </div>
         </div>
-        <p style="font-size: 0.5em; color: var(--emerald); margin-top: 8px;">캠프 종료 후에도 응용 버전으로 계속 사용 중</p>
+        <div class="arch-flow" style="margin-top: 16px; justify-content: center;">
+          <div class="arch-node">H2O</div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-node">BigQuery</div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-node">Salesforce</div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-node">초청리스트</div>
+        </div>
+        <p style="font-size: 0.5em; color: var(--emerald); margin-top: 16px;">캠프 종료 후에도 응용 버전으로 계속 사용 중 — AE 전체가 쓸 수 있도록 확장 고민</p>
       </section>
 
       <!-- ========================================= -->
@@ -820,7 +849,17 @@
           </div>
           <div class="solution-box">
             <h4>Solution</h4>
-            <p>Claude Code로 가이드 분석 → 개선점 도출 → 자동 리라이팅 파이프라인 구축</p>
+            <p>Claude Code로 가이드 분석 → 개선점 도출 → 리라이팅. 스킬을 GitHub에 올려 PW 팀 전체가 활용 가능하도록 설계</p>
+          </div>
+        </div>
+        <div class="impact-row" style="margin-top: 20px; justify-content: center; gap: 48px;">
+          <div class="impact-stat">
+            <div class="number">80</div>
+            <div class="label">최적화 대상 가이드</div>
+          </div>
+          <div class="impact-stat">
+            <div class="number">0</div>
+            <div class="label">필요한 하드스킬</div>
           </div>
         </div>
         <div class="quote-block" style="margin-top: 20px;">
@@ -837,34 +876,42 @@
           <div class="avatar">운채</div>
           <div class="info">
             <h2>정운채 <span style="font-size: 0.5em; color: var(--text-dim); font-weight: 500;">CS</span></h2>
-            <div class="subtitle">CS 문의 자동 초안 생성 — 5단계 파이프라인</div>
+            <div class="subtitle">CS 문의 자동 초안 생성 — 3단계 파이프라인</div>
           </div>
         </div>
-        <div class="pipeline">
-          <div class="pipeline-step fragment">
-            <div class="step-num">1</div>
-            <div class="step-text"><strong>이메일 수신</strong> — 고객 문의 접수</div>
+        <div class="arch-flow" style="margin-bottom: 16px;">
+          <div class="arch-node">/categorize</div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-node">/guide-digest</div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-node">답변 초안</div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-node">Obsidian 저장</div>
+        </div>
+        <div class="impact-row" style="justify-content: center; gap: 32px; margin-top: 20px;">
+          <div class="impact-stat fragment">
+            <div class="number">95%</div>
+            <div class="label">분류 시간 단축<br><span style="font-size: 0.85em;">2-3분 → 10초</span></div>
           </div>
-          <div class="pipeline-step fragment">
-            <div class="step-num">2</div>
-            <div class="step-text"><strong>자동 분류</strong> — 문의 유형 판별</div>
+          <div class="impact-stat fragment">
+            <div class="number">90%</div>
+            <div class="label">가이드 검색 단축<br><span style="font-size: 0.85em;">5-10분 → 30초</span></div>
           </div>
-          <div class="pipeline-step fragment">
-            <div class="step-num">3</div>
-            <div class="step-text"><strong>가이드 검색</strong> — 관련 문서 자동 매칭</div>
+          <div class="impact-stat fragment">
+            <div class="number">80%</div>
+            <div class="label">답변 초안 단축<br><span style="font-size: 0.85em;">10-15분 → 2-3분</span></div>
           </div>
-          <div class="pipeline-step fragment">
-            <div class="step-num">4</div>
-            <div class="step-text"><strong>답변 초안</strong> — AI 기반 응답 생성</div>
-          </div>
-          <div class="pipeline-step fragment">
-            <div class="step-num">5</div>
-            <div class="step-text"><strong>Obsidian 저장</strong> — 지식베이스 축적</div>
+          <div class="impact-stat fragment">
+            <div class="number">100%</div>
+            <div class="label">아침 정리 자동화<br><span style="font-size: 0.85em;">30분+ → 0분</span></div>
           </div>
         </div>
-        <p style="font-size: 0.5em; color: var(--text-dim); margin-top: 16px;">
-          오케스트레이터 + 서브에이전트 구조로 설계
-        </p>
+        <div style="display: flex; gap: 16px; margin-top: 20px; align-items: center; justify-content: center;">
+          <span class="tag">21개 커스텀 스킬</span>
+          <span class="tag cyan">일 1시간+ 절감</span>
+          <span class="tag">cron 자동 실행</span>
+          <span class="tag cyan">5개 MCP 연동</span>
+        </div>
       </section>
 
       <!-- ========================================= -->
@@ -921,19 +968,29 @@
             <p>/prd 스킬로 표준화된 PRD를 자동 생성. ab180 org에 배포하여 다른 PM도 사용 가능</p>
           </div>
         </div>
-        <div style="margin-top: 24px;">
+        <div style="margin-top: 20px;">
           <div class="arch-flow">
-            <div class="arch-node">/prd 명령</div>
+            <div class="arch-node">/prd ABRO-XXXX</div>
             <div class="arch-arrow">→</div>
-            <div class="arch-node">컨텍스트 수집</div>
+            <div class="arch-node">Notion 자료 읽기</div>
             <div class="arch-arrow">→</div>
-            <div class="arch-node">PRD 생성</div>
+            <div class="arch-node">PRD 자동 생성</div>
             <div class="arch-arrow">→</div>
             <div class="arch-node">ab180 org 배포</div>
           </div>
         </div>
-        <p style="font-size: 0.5em; color: var(--emerald); margin-top: 16px;">
-          개인 도구 → 팀 도구로 발전. 다른 PM도 사용 가능
+        <div class="impact-row" style="margin-top: 20px; justify-content: center; gap: 48px;">
+          <div class="impact-stat">
+            <div class="number">1줄</div>
+            <div class="label">설치 명령어</div>
+          </div>
+          <div class="impact-stat">
+            <div class="number">ab180</div>
+            <div class="label">GitHub org 배포</div>
+          </div>
+        </div>
+        <p style="font-size: 0.5em; color: var(--emerald); margin-top: 12px;">
+          개인 도구 → 팀 도구로 발전. 다른 PM도 바로 설치해서 사용 가능
         </p>
       </section>
 
