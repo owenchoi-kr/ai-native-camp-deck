@@ -314,6 +314,27 @@
       background-clip: text;
     }
 
+    .r-delta.highlight {
+      font-size: 0.7em;
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 20px rgba(245, 158, 11, 0.4);
+    }
+
+    .stat-card.highlight {
+      border-color: rgba(245, 158, 11, 0.3);
+      box-shadow: 0 0 24px rgba(245, 158, 11, 0.1);
+    }
+
+    .stat-card.highlight .s-num {
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
     /* ========================================= */
     /* PROJECT SLIDE                             */
     /* ========================================= */
@@ -443,12 +464,12 @@
     .voice-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 24px;
+      gap: 10px;
+      margin-top: 20px;
     }
 
     .voice-card {
-      padding: 18px 20px;
+      padding: 14px 16px;
       border-radius: 12px;
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
@@ -458,8 +479,8 @@
     .voice-card::before {
       content: '"';
       position: absolute;
-      top: 8px; left: 14px;
-      font-size: 2em;
+      top: 6px; left: 12px;
+      font-size: 1.6em;
       color: var(--emerald);
       opacity: 0.3;
       font-family: Georgia, serif;
@@ -467,20 +488,20 @@
     }
 
     .voice-card .v-text {
-      font-size: 0.46em;
+      font-size: 0.4em;
       font-style: italic;
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.55;
       margin: 0;
       padding-left: 4px;
     }
 
     .voice-card .v-author {
-      font-size: 0.38em;
+      font-size: 0.35em;
       color: var(--emerald);
       font-style: normal;
       font-weight: 600;
-      margin-top: 8px;
+      margin-top: 6px;
     }
 
     /* ========================================= */
@@ -731,7 +752,7 @@
         <span class="section-label">Who</span>
         <h2 style="font-size: 2em;">6명. 전원 비개발자.</h2>
         <p style="font-size: 0.55em; color: var(--text-dim); margin-top: 4px;">
-          코드라고는 한 줄도 눈에 보이지 않는 세계에서 일하는 사람들
+          코드와는 굉장히 거리가 먼 세계에서 일하는 사람들
         </p>
         <div class="chip-grid">
           <div class="chip fragment">
@@ -838,35 +859,35 @@
             <div class="r-before">캠페인 초청리스트 수동 2~3시간</div>
             <div class="r-arrow">→</div>
             <div class="r-after">8개 질문 → 7단계 자동 파이프라인, 5~10분</div>
-            <div class="r-delta">12x</div>
+            <div class="r-delta highlight">12x</div>
           </div>
           <div class="ba-row fragment">
             <div><div class="r-name">영주</div><div class="r-role">PW</div></div>
-            <div class="r-before">89편 리뉴얼 = 3명 × 6개월</div>
+            <div class="r-before">89편 리뉴얼 = 240시간 (3명 × 6개월)</div>
             <div class="r-arrow">→</div>
-            <div class="r-after">6 Skills + 5 Templates, 1명이 상반기 완료</div>
-            <div class="r-delta">89편</div>
+            <div class="r-after">6 Skills + 5 Templates, 40시간으로 단축</div>
+            <div class="r-delta highlight">6x</div>
           </div>
           <div class="ba-row fragment">
             <div><div class="r-name">운채</div><div class="r-role">CS</div></div>
-            <div class="r-before">CS 문의마다 가이드 검색 → 답변 반복</div>
+            <div class="r-before">답변 작성 30분~1시간, 가이드 검색 반복</div>
             <div class="r-arrow">→</div>
             <div class="r-after">5단계 파이프라인 + 21개 스킬</div>
-            <div class="r-delta">95%↓</div>
+            <div class="r-delta">50%+↓</div>
           </div>
           <div class="ba-row fragment">
             <div><div class="r-name">진형</div><div class="r-role">RevOps</div></div>
-            <div class="r-before">인보이스 수동 분류 30분, 누락 위험</div>
+            <div class="r-before">매일 수금 메일 확인 20~30분</div>
             <div class="r-arrow">→</div>
-            <div class="r-after">3 Skills 자동 정리, 누락 0건</div>
-            <div class="r-delta">6x</div>
+            <div class="r-after">스킬 딸깍 1~2분, 누락 0건</div>
+            <div class="r-delta highlight">15x</div>
           </div>
           <div class="ba-row fragment">
             <div><div class="r-name">David</div><div class="r-role">PM</div></div>
-            <div class="r-before">PRD 작성이 데일리에 5일 연속 등장</div>
+            <div class="r-before">PRD 타임블록 3~6시간, 데일리 5일 연속</div>
             <div class="r-arrow">→</div>
-            <div class="r-after">/prd 한 줄 → 9단계 파이프라인, org 배포</div>
-            <div class="r-delta">5x</div>
+            <div class="r-after">/prd 한 줄 → 30분 이내 완료, org 배포</div>
+            <div class="r-delta highlight">6~12x</div>
           </div>
         </div>
         <aside class="notes">
@@ -960,7 +981,7 @@
             <div class="s-num">295</div>
             <div class="s-label">직무 필터 통과</div>
           </div>
-          <div class="stat-card">
+          <div class="stat-card highlight">
             <div class="s-num">12x</div>
             <div class="s-label">소요시간 단축</div>
           </div>
@@ -988,15 +1009,19 @@
         <div class="ba-compare">
           <div class="ba-box before">
             <div class="ba-label">Before</div>
-            <div class="ba-text">89편 가이드 리뉴얼 = 3명이 6개월<br>도구 경험 · 하드스킬 없어서 방법이 없었음</div>
+            <div class="ba-text">89편 가이드 리뉴얼 = 240시간 (3명 × 6개월)<br>도구 경험 · 하드스킬 없어서 방법이 없었음</div>
           </div>
           <div class="ba-mid-arrow">→</div>
           <div class="ba-box after">
             <div class="ba-label">After</div>
-            <div class="ba-text">6 Skills + 2 Frameworks + 5 Templates<br>1명이 상반기 내 완료 가능한 체계 구축</div>
+            <div class="ba-text">6 Skills + 2 Frameworks + 5 Templates<br>240시간 → 40시간 (6x), 1명이 상반기 완료</div>
           </div>
         </div>
         <div class="stats-bar">
+          <div class="stat-card highlight">
+            <div class="s-num">6x</div>
+            <div class="s-label">시간 단축<br><span style="font-size:0.85em;">240h → 40h</span></div>
+          </div>
           <div class="stat-card">
             <div class="s-num">89편</div>
             <div class="s-label">대상 가이드</div>
@@ -1008,10 +1033,6 @@
           <div class="stat-card">
             <div class="s-num">5</div>
             <div class="s-label">Templates</div>
-          </div>
-          <div class="stat-card">
-            <div class="s-num">2</div>
-            <div class="s-label">Frameworks</div>
           </div>
         </div>
         <div class="key-insight">
@@ -1037,7 +1058,7 @@
         <div class="ba-compare">
           <div class="ba-box before">
             <div class="ba-label">Before</div>
-            <div class="ba-text">고객 문의 → 가이드 검색 → 답변 작성<br>매번 같은 패턴이지만 매번 시간 소모</div>
+            <div class="ba-text">고객 문의 답변 30분~1시간 소요<br>가이드 검색 → 답변 작성, 매번 같은 패턴 반복</div>
           </div>
           <div class="ba-mid-arrow">→</div>
           <div class="ba-box after">
@@ -1047,20 +1068,20 @@
         </div>
         <div class="stats-bar">
           <div class="stat-card">
-            <div class="s-num">95%</div>
-            <div class="s-label">문의 분류 시간↓</div>
+            <div class="s-num">50%+</div>
+            <div class="s-label">답변 시간 단축</div>
           </div>
           <div class="stat-card">
-            <div class="s-num">90%</div>
-            <div class="s-label">정보 수집 시간↓</div>
-          </div>
-          <div class="stat-card">
-            <div class="s-num">80%</div>
-            <div class="s-label">답변 작성 시간↓</div>
+            <div class="s-num">147건</div>
+            <div class="s-label">문의 카테고라이징</div>
           </div>
           <div class="stat-card">
             <div class="s-num">21</div>
             <div class="s-label">커스텀 스킬</div>
+          </div>
+          <div class="stat-card">
+            <div class="s-num">5단계</div>
+            <div class="s-label">자동 파이프라인</div>
           </div>
         </div>
         <div class="key-insight">
@@ -1086,7 +1107,7 @@
         <div class="ba-compare">
           <div class="ba-box before">
             <div class="ba-label">Before</div>
-            <div class="ba-text">인보이스 메일 수동 분류 30분<br>중요 메일 누락, 파트너사 정리에 휴먼에러</div>
+            <div class="ba-text">매일 수금 메일 확인 20~30분<br>중요 메일 누락, 파트너사 정리에 휴먼에러</div>
           </div>
           <div class="ba-mid-arrow">→</div>
           <div class="ba-box after">
@@ -1095,21 +1116,21 @@
           </div>
         </div>
         <div class="stats-bar">
-          <div class="stat-card">
-            <div class="s-num">3x</div>
-            <div class="s-label">회신속도 향상</div>
+          <div class="stat-card highlight">
+            <div class="s-num">15x</div>
+            <div class="s-label">메일 확인 단축<br><span style="font-size:0.85em;">20분 → 1분</span></div>
           </div>
           <div class="stat-card">
             <div class="s-num">0건</div>
             <div class="s-label">중요메일 누락</div>
           </div>
           <div class="stat-card">
-            <div class="s-num">30→5분</div>
-            <div class="s-label">인보이스 정리</div>
+            <div class="s-num">3</div>
+            <div class="s-label">Skills 운영 중</div>
           </div>
           <div class="stat-card">
-            <div class="s-num">0%</div>
-            <div class="s-label">휴먼에러</div>
+            <div class="s-num">100%</div>
+            <div class="s-label">발표일 사용률</div>
           </div>
         </div>
         <div class="key-insight">
@@ -1135,7 +1156,7 @@
         <div class="ba-compare">
           <div class="ba-box before">
             <div class="ba-label">Before</div>
-            <div class="ba-text">데일리에 "PRD 작성"이 5일 연속 등장<br>컨텍스트 수집만으로 시간 소진 (Slack, Jira, Notion, 웹)</div>
+            <div class="ba-text">PRD 작성에 타임블록 3~6시간<br>컨텍스트 수집만으로 시간 소진 (Slack, Jira, Notion, 웹)</div>
           </div>
           <div class="ba-mid-arrow">→</div>
           <div class="ba-box after">
@@ -1144,9 +1165,9 @@
           </div>
         </div>
         <div class="stats-bar">
-          <div class="stat-card">
-            <div class="s-num">5x</div>
-            <div class="s-label">초안 작성 속도<br><span style="font-size:0.85em;">5일 → 수 시간</span></div>
+          <div class="stat-card highlight">
+            <div class="s-num">6~12x</div>
+            <div class="s-label">초안 작성 속도<br><span style="font-size:0.85em;">3~6h → 30분 이내</span></div>
           </div>
           <div class="stat-card">
             <div class="s-num">0h</div>
@@ -1181,20 +1202,28 @@
         <h2>참가자들의 목소리</h2>
         <div class="voice-grid">
           <div class="voice-card fragment">
-            <p class="v-text">굉장히 empowering한 경험. 도구 경험도 하드스킬도 없어서 어찌할 도리가 없던 일에 방법을 찾고 구현할 수 있다는 게 너무 놀랍고 신나요</p>
+            <p class="v-text">하드스킬이 없어서 어찌할 도리가 없던 일에 방법을 찾고 구현할 수 있다는 게 굉장히 임파워링한 경험이었어요. 결정의 차별성이 결과의 차별성을 만들겠다는 걸 느꼈습니다</p>
             <div class="v-author">— 영주 (PW)</div>
           </div>
           <div class="voice-card fragment">
-            <p class="v-text">매번 조건이 다르고 뉘앙스가 필요한 업무에서는 폼(Form)이 아니라 대화(Conversation)가 유일한 인터페이스다</p>
+            <p class="v-text">앞으로 PRD를 손으로 쓸 일이 없을 것 같아요. 이래서 딸깍이구나, 하는 걸 느꼈습니다</p>
+            <div class="v-author">— David (PM)</div>
+          </div>
+          <div class="voice-card fragment">
+            <p class="v-text">제가 제일 잘 아는 것을 잘 설명하는 것만 하면 됐어요. 사람만 할 수 있는 일에 집중을 하고 싶다</p>
             <div class="v-author">— 한솔 (Marketing)</div>
           </div>
           <div class="voice-card fragment">
-            <p class="v-text">내가 제일 잘 아는 것을 잘 설명하기. 업무의 전문가는 나, 코드는 Claude가. 11일간의 대화로 하나의 자동화 스킬 완성</p>
-            <div class="v-author">— 한솔 (Marketing)</div>
+            <p class="v-text">AI한테 답을 달라고만 시키면 수동적이 되고 까먹는다. 내가 생각하는 주체가 될 수 있게 다시 끌어오는 게 좋았다</p>
+            <div class="v-author">— 담인 (SA)</div>
           </div>
           <div class="voice-card fragment">
-            <p class="v-text">캠페인 하나가 결정되면 세팅부터 트래킹까지 루틴을 자동화하고, 나는 사람만 할 수 있는 일에 집중한다!</p>
-            <div class="v-author">— 한솔 (Marketing), What's Next</div>
+            <p class="v-text">반복되는 일에 시간을 많이 쓰는데, CSM은 고객사와의 관계를 만드는 데 집중해야 해요</p>
+            <div class="v-author">— 운채 (CS)</div>
+          </div>
+          <div class="voice-card fragment">
+            <p class="v-text">비개발자도 AI를 다루면 같은 시간에 더 많은 일을 할 수 있을 것 같아요</p>
+            <div class="v-author">— 진형 (RevOps)</div>
           </div>
         </div>
         <aside class="notes">
@@ -1273,6 +1302,46 @@
         <aside class="notes">
           Key Message: 캠프 참가자 6명이 끝이 아니라 전사적 AI Native 문화의 시작점.
           Benefit: "우리 팀도 이렇게 할 수 있겠다" — 다음 프로그램에 대한 기대.
+        </aside>
+      </section>
+
+      <!-- ============================================================= -->
+      <!-- APPENDIX — 이 발표자료는 어떻게 만들었나                          -->
+      <!-- ============================================================= -->
+      <section>
+        <span class="section-label">Appendix</span>
+        <h2>이 발표자료도 <span class="gradient-text">딸깍</span></h2>
+        <p class="sub-text" style="margin-bottom: 16px;">파일 1개 · 코드 직접 작성 0줄 · GitHub Pages 배포</p>
+        <div style="display: flex; gap: 14px; margin-bottom: 18px;">
+          <div class="glass" style="flex:1; padding: 16px 14px; border-radius: 12px; text-align: center;">
+            <div style="font-size: 0.42em; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px;">Input</div>
+            <div style="font-size: 0.52em; color: var(--text); line-height: 1.6;">
+              발표 녹취록 1개<br>
+              참가자 슬라이드 6개<br>
+              스크린샷 몇 장<br>
+              <span style="color: var(--text-dim);">+ 자연어 지시</span>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; font-size: 1.4em; color: var(--amber);">→</div>
+          <div class="glass" style="flex:1; padding: 16px 14px; border-radius: 12px; text-align: center;">
+            <div style="font-size: 0.42em; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px;">Output</div>
+            <div style="font-size: 0.52em; color: var(--text); line-height: 1.6;">
+              15장 프레젠테이션<br>
+              커스텀 디자인 시스템<br>
+              GitHub Pages 배포<br>
+              <span style="color: var(--amber); font-weight: 700;">index.html 1개</span>
+            </div>
+          </div>
+        </div>
+        <div style="display: flex; gap: 10px; justify-content: center;">
+          <div style="padding: 10px 18px; border-radius: 20px; background: var(--emerald-dim); border: 1px solid rgba(16,185,129,0.2); font-size: 0.42em; color: var(--emerald); font-weight: 600;">Claude Code로 대화</div>
+          <div style="padding: 10px 18px; border-radius: 20px; background: var(--emerald-dim); border: 1px solid rgba(16,185,129,0.2); font-size: 0.42em; color: var(--emerald); font-weight: 600;">디자인 시안 없음</div>
+          <div style="padding: 10px 18px; border-radius: 20px; background: var(--emerald-dim); border: 1px solid rgba(16,185,129,0.2); font-size: 0.42em; color: var(--emerald); font-weight: 600;">코드 편집기 열지 않음</div>
+          <div style="padding: 10px 18px; border-radius: 20px; background: rgba(245,158,11,0.12); border: 1px solid rgba(245,158,11,0.25); font-size: 0.42em; color: var(--amber); font-weight: 700;">소요 시간: 대화 몇 번</div>
+        </div>
+        <aside class="notes">
+          Key Message: 이 발표자료 자체가 AI Native Camp의 산출물. 메타적 증거.
+          Benefit: "발표자료도 이렇게 만들 수 있어?" — 가장 직관적인 데모.
         </aside>
       </section>
 
